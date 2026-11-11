@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Mask2Former_Keratin
 
 Semantic segmentation of whole-slide histopathology images (adamantinoma:
@@ -377,21 +377,4 @@ from the repository's Release page or Hugging Face link, or use `git lfs pull` i
 
 ---
 
-## 10. Status, license, acknowledgements
 
-**Status.** The patch step, slide stitching, metrics and GeoJSON export were tested on
-synthetic data. Training was run on one Slurm cluster (NVIDIA H100, MIG slice). Inference on
-real slides is the part to verify first: always look at the overlays. There is no validation
-split or best-checkpoint selection yet; checkpoints are saved periodically and at the end.
-
-**Data and privacy.** Never commit slides, masks, patches or predictions. Keep all research
-and patient data outside the repository unless you have permission to share them.
-
-**License.** `<choose a license>`
-
-**Acknowledgements.** Built on [Mask2Former](https://github.com/facebookresearch/Mask2Former)
-and [Detectron2](https://github.com/facebookresearch/detectron2); please check their licenses
-before reuse.
-=======
-ok
->>>>>>> bbd45defa77cfcec189f05c26ca8432ea2919ae5
