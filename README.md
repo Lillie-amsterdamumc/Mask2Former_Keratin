@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Mask2Former_Keratin
 
 Semantic segmentation of whole-slide histopathology images (adamantinoma:
@@ -391,3 +392,6 @@ and patient data outside the repository unless you have permission to share them
 **Acknowledgements.** Built on [Mask2Former](https://github.com/facebookresearch/Mask2Former)
 and [Detectron2](https://github.com/facebookresearch/detectron2); please check their licenses
 before reuse.
+=======
+ok
+>>>>>>> bbd45defa77cfcec189f05c26ca8432ea2919ae5
