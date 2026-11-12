@@ -249,7 +249,9 @@ ls -lh $OUTPUT_DIR/*.pth
 ```
 
 Each file should be several hundred MB. A file of only a few hundred **bytes** is
-not a model (see the Git LFS entry in [Troubleshooting](#9-troubleshooting)).
+not a model (see the Git LFS entry in [Troubleshooting](#9-troubleshooting)). 
+The trained model checkpoint is stored in Checkpoints/model_final.pth using Git LFS. After cloning the repository, run git lfs pull to download the actual checkpoint file or Alternatively, download the checkpoint from the repository's Releases page
+
 
 To share weights, make a smaller weights-only file:
 
@@ -357,6 +359,6 @@ Useful options:
 
 **Weights that are a Git LFS pointer:** if you downloaded a repository as a ZIP, or cloned it
 without Git LFS, large files are replaced by pointer files of about 130 bytes that start with
-`version https://git-lfs...`. Check with `ls -l` and `head -c 200 file.pth`.
+`version https://git-lfs...`. Check with `ls -l` and `head -c 200 file.pth`.The trained model checkpoint is stored in Checkpoints/model_final.pth using Git LFS. After cloning the repository, run git lfs pull to download the actual checkpoint file or Alternatively, download the checkpoint from the repository's Releases page
 
 
