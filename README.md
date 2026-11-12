@@ -26,7 +26,7 @@ slides, and export annotations. Run the commands in the order shown.
 7. [Predict new slides](#7-predict-new-slides)
 8. [Export GeoJSON for QuPath](#8-export-geojson-for-qupath)
 9. [Troubleshooting](#9-troubleshooting)
-10. [Status, license, acknowledgements](#10-status-license-acknowledgements)
+
 
 ---
 
@@ -262,9 +262,7 @@ EOF
 ```
 
 This repository tracks `.pth` checkpoints with Git LFS. The shared checkpoint is stored
-at `Checkpoints/model_final.pth`. Keep large temporary checkpoints outside the repository; for any
-additional checkpoint you share, use Git LFS or a GitHub Release/Hugging Face and document
-its location in this section.
+at `Checkpoints/model_final.pth`. 
 
 To check which architecture a weights file has (it must match `--classes` / `--num-queries`):
 
@@ -355,26 +353,10 @@ Useful options:
 
 | Symptom | Cause and fix |
 |---|---|
-| `Is a directory` after `IMAGES_DIR=` | There is a **space** after `=`. Write `VAR=value` with no spaces. |
-| `command not found` for lines starting with `[user@host ...]` | You pasted the shell prompt. Copy only the commands. |
-| A command containing a placeholder fails (e.g. a literal `/path/to/...`) | Replace placeholders with real values; paths inside Python must be in quotes. |
-| `sbatch: error: Unable to open file` / `No such file or directory` | Wrong directory: `cd` to the repository first and check with `ls`. |
-| `ModuleNotFoundError: No module named 'mask2former'` | The environment was not activated through `activate_mask2former.sh`. |
-| `Invalid account / partition / gres` | Names differ on your cluster; see `sinfo` and ask your admins. |
-| `Disk quota exceeded` | `BASE` is on a small filesystem; reinstall with a larger `BASE`. |
-| `KeyError: Non-existent config key: MODEL.RESNETS.STEM_TYPE` | `add_deeplab_config` was not called before `add_maskformer2_config` (done correctly in this repo's scripts). |
-| `ValueError: 'full_model' is not a valid GradientClipType` | The default detectron2 optimizer does not know Mask2Former's clipping; this repo's trainer builds the Mask2Former optimizer. |
 | `UnpicklingError: invalid load key, 'v'` when loading weights | The `.pth` is a **Git LFS pointer** (a tiny text file), not the model; see below. |
-| Empty white squares inside tissue in the overlay | Blank-patch skipping; it is off by default in this repo (`--skip-blank` turns it on). |
-| `unzip` reports a zip bomb | `UNZIP_DISABLE_ZIPBOMB_DETECTION=TRUE unzip file.zip` (only for archives you trust). |
-| Training out of memory | Lower `--batch-size` (for example 2) through `TRAIN_ARGS`. |
-| Patch job killed | Whole slides are loaded into RAM: raise `PATCH_MEM`. |
 
 **Weights that are a Git LFS pointer:** if you downloaded a repository as a ZIP, or cloned it
 without Git LFS, large files are replaced by pointer files of about 130 bytes that start with
-`version https://git-lfs...`. Check with `ls -l` and `head -c 200 file.pth`. Get the real file
-from the repository's Release page or Hugging Face link, or use `git lfs pull` in a clone.
-
----
+`version https://git-lfs...`. Check with `ls -l` and `head -c 200 file.pth`.
 
 
