@@ -172,7 +172,7 @@ export GPU_GRES=gpu:1
 Submit patching and training:
 
 ```bash
-cd sbatches
+cd batch_files
 bash submit_pipeline.sh
 ```
 
